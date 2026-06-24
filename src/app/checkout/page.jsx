@@ -97,7 +97,7 @@ function StripeCheckoutForm({ product, buyerEmail, buyerName }) {
     setCardError('');
 
     try {
-      const res = await fetch('http://localhost:8000/create-payment-intent', {
+      const res = await fetch('https://reselhubserver-02.vercel.app/create-payment-intent', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ price: product.price })
@@ -129,7 +129,7 @@ function StripeCheckoutForm({ product, buyerEmail, buyerName }) {
           paymentStatus: 'pending'  // লজিক বসানো হয়েছে
         };
 
-        const saveResponse = await fetch('http://localhost:8000/api/orders', {
+        const saveResponse = await fetch('https://reselhubserver-02.vercel.app/api/orders', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(orderPayload)

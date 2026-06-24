@@ -9,9 +9,9 @@ export default function BuyerOverview() {
   useEffect(() => {
     // এখানে আমরা ব্যাকএন্ড থেকে ডাটা আনছি
     Promise.all([
-      fetch(`http://localhost:8000/my-orders/${buyerEmail}`).then(res => res.json()),
-      fetch(`http://localhost:8000/wishlist/${buyerEmail}`).then(res => res.json()),
-      fetch(`http://localhost:8000/payments/${buyerEmail}`).then(res => res.json())
+      fetch(`https://reselhubserver-02.vercel.app/my-orders/${buyerEmail}`).then(res => res.json()),
+      fetch(`https://reselhubserver-02.vercel.app/wishlist/${buyerEmail}`).then(res => res.json()),
+      fetch(`https://reselhubserver-02.vercel.app/payments/${buyerEmail}`).then(res => res.json())
     ])
     .then(([orders, wishlist, payments]) => {
       setStats({

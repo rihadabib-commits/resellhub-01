@@ -9,7 +9,7 @@ export default function PaymentHistoryPage() {
   const buyerEmail = 'rakib.hasan@gmail.com'; 
 
   useEffect(() => {
-    fetch(`http://localhost:8000/payments/${buyerEmail}`)
+    fetch(`https://reselhubserver-02.vercel.app/payments/${buyerEmail}`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) setPayments(data);

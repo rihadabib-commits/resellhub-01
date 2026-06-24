@@ -11,7 +11,7 @@ export default function ProfileManagementPage() {
   const buyerEmail = 'rakib.hasan@gmail.com'; 
 
   useEffect(() => {
-    fetch(`http://localhost:8000/users/${buyerEmail}`)
+    fetch(`https://reselhubserver-02.vercel.app/users/${buyerEmail}`)
       .then(res => res.json())
       .then(data => {
         if (data) setProfile(data);
@@ -27,7 +27,7 @@ export default function ProfileManagementPage() {
     e.preventDefault();
     setUpdating(true);
     try {
-      const response = await fetch(`http://localhost:8000/users/${profile._id}`, {
+      const response = await fetch(`https://reselhubserver-02.vercel.app/users/${profile._id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

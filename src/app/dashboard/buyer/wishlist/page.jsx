@@ -12,7 +12,7 @@ export default function WishlistPage() {
   const buyerEmail = 'rakib.hasan@gmail.com'; 
 
   useEffect(() => {
-    fetch(`http://localhost:8000/wishlist/${buyerEmail}`)
+    fetch(`https://reselhubserver-02.vercel.app/wishlist/${buyerEmail}`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {
@@ -31,7 +31,7 @@ export default function WishlistPage() {
     if (!proceed) return;
 
     try {
-      const response = await fetch(`http://localhost:8000/wishlist/${id}`, {
+      const response = await fetch(`https://reselhubserver-02.vercel.app/wishlist/${id}`, {
         method: 'DELETE',
       });
       const data = await response.json();
