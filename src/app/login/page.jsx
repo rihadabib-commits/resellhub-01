@@ -1,5 +1,5 @@
 "use client";
-
+import toast from "react-hot-toast";
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation'; // রিডাইরেক্ট করার জন্য
@@ -34,14 +34,16 @@ const LoginPage = () => {
 
             if (error) {
                 // Better Auth এরর দিলে সেটি সেট করা হচ্ছে
-                setErrorMessage(error.message || "Invalid email or password.");
+            toast.error(error.message || "Invalid email or password.");
             } else {
-                // সফল হলে ড্যাশবোর্ডে রিডাইরেক্ট করবে
-                router.push("/dashboard");
+                // সফল হলে ড্যাশবোর্ডে রিডাইরেক্ট করব
+                toast.success("Login Successful!");
+router.push("/dashboard");
+               
             }
         } catch (err) {
             console.error("Login Exception:", err);
-            setErrorMessage("Something went wrong. Please try again.");
+            toast.error("Something went wrong. Please try again.");
         } finally {
             setLoading(false);
         }
@@ -56,6 +58,7 @@ const LoginPage = () => {
             });
         } catch (err) {
             console.error("Google Auth Error:", err);
+            toast.error("Google Login Failed");
         }
     };
 
