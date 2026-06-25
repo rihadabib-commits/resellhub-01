@@ -251,9 +251,20 @@ export default function ManageOrdersPage() {
                 
                 {/* Payment Status (New Logic) */}
                 <td className="py-4 px-2">
-                  <span className={`px-2 py-1 rounded-full text-[9px] font-bold uppercase ${order.paymentStatus === 'Paid' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'}`}>
+                  {/* <span className={`px-2 py-1 rounded-full text-[9px] font-bold uppercase ${order.paymentStatus === 'Paid' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'}`}>
                     {order.paymentStatus || 'Pending'}
-                  </span>
+                  </span> */}
+                  const isPaid = order.paymentStatus?.toLowerCase() === "paid";
+
+<span
+  className={`px-2 py-1 rounded-full text-[9px] font-bold uppercase ${
+    isPaid
+      ? "bg-green-100 text-green-700"
+      : "bg-yellow-100 text-yellow-700"
+  }`}
+>
+  {isPaid ? "Paid" : "Pending"}
+</span>
                 </td>
 
                 {/* Status Update Action */}
